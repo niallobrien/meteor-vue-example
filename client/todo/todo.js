@@ -19,9 +19,11 @@ Template.todo.rendered = function () {
     },
     created: function () {
       this.subscription = Meteor.subscribe('todos')
-      Tracker.autorun(function () {
-        this.todos = Todos.find().fetch()
-      }.bind(this))
+    },
+    sync: {
+      'todos': function() {
+        return Todos.find();
+      }
     },
     destroyed: function () {
       this.subscription.stop()

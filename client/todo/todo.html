@@ -4,7 +4,7 @@
 
         <form v-on="submit:addTodo">
             <input v-model="newTodo">
-            <button type="submit">Add Todo</button>
+            <button type="submit">Add [[newTodo ? "'" + newTodo + "'" : '']]Todo</button>
         </form>
         <ul>
             <li v-repeat="todo:todos" track-by="_id">

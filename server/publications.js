@@ -1,3 +1,3 @@
 Meteor.publish("todos", function () {
-  return Todos.find({});
+  return Todos.find();
 });
