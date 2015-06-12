@@ -1,0 +1,16 @@
+<template name="todo">
+    <div id="demo">
+        <h1>[[title | uppercase]]</h1>
+
+        <form v-on="submit:addTodo">
+            <input v-model="newTodo">
+            <button type="submit">Add Todo</button>
+        </form>
+        <ul>
+            <li v-repeat="todo:todos" track-by="_id">
+                <span>[[todo.text]]</span>
+                <a v-on="click:removeTodo(todo._id)">[x]</a>
+            </li>
+        </ul>
+    </div>
+</template>

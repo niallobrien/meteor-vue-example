@@ -1,0 +1,7 @@
+body {
+    font-family: Helvetica Neue, Arial, sans-serif;
+}
+
+li.done {
+    text-decoration: line-through;
+}
