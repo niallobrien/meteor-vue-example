@@ -2,7 +2,7 @@
     <div id="demo">
         <h1>[[title | uppercase]] ([[todos.length]])</h1>
 
-        <form v-on="submit: addTodo" v-wait-for="todos">
+        <form v-on="submit: addTodo">
             <input v-model="newTodo" v-validate="minLength: 4, maxLength: 128" placeholder="Add/filter todos..." required>
             <button type="submit" v-attr="disabled: validation.newTodo.invalid">Add [[newTodo ? "'" + newTodo + "'" : '']]Todo</button>
             <div>

@@ -1,9 +1,11 @@
 Template.todo.rendered = function () {
+  Vue.use(window['vue-validator']);
   var vm = new Vue({
     el: '#demo',
     data: {
       title: 'todos',
-      todos: []
+      todos: [],
+      newTodo: ''
     },
     methods: {
       addTodo: function (e) {
