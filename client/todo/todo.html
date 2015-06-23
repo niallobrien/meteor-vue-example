@@ -3,13 +3,18 @@
         <h1>[[title | uppercase]] ([[todos.length]])</h1>
 
         <form v-on="submit: addTodo">
-            <input v-model="newTodo" v-validate="minLength: 4, maxLength: 128" placeholder="Add/filter todos..." required>
-            <button type="submit" v-attr="disabled: validation.newTodo.invalid">Add [[newTodo ? "'" + newTodo + "' " : '']]Todo</button>
+            <input v-model="newTodo" v-validate="minLength: 4, maxLength: 128" placeholder="Add/filter todos..."
+                   required>
+            <button type="submit" v-attr="disabled: validation.newTodo.invalid">Add [[newTodo ? "'" + newTodo + "' " :
+                '']]Todo
+            </button>
             <div>
                 <span v-show="validation.newTodo.minLength && newTodo">Your todo is too short</span>
                 <span v-show="validation.newTodo.maxLength && newTodo">Your todo is too long</span>
             </div>
         </form>
+        <h1 v-if="! subscriptionsReady">Loading...</h1>
+        <button v-if="subscriptionsReady" v-on="click: loadMore" class="js-load-more-button">Load more.</button>
         <ul>
             <li v-repeat="todo: todos | filterBy newTodo" track-by="_id">
                 <span>[[todo.text]]</span>
